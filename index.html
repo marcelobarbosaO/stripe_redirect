@@ -17,9 +17,11 @@
     function writeLink () {
 	  var parser = document.createElement('a');
 	  parser.href = window.location.href;
-	  var query = parser.search.substring(1);
+	  var query = parser.search;
+
+      alert(JSON.stringify(query));
         
-      var iosURL = "exp://7jkifnk.marcelocrowdform.19000.exp.direct/--/stripe?"+query;
+      var iosURL = "exp://7jkifnk.marcelocrowdform.19000.exp.direct/--/stripe?" + query;
       iosLink.href = iosURL;
 
       var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.mycompany.app;S.browser_fallback_url=?"+query+";end";
