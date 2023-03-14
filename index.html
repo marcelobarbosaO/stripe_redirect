@@ -2,39 +2,36 @@
 <html>
   <head>
     <script>
-    function getMobileOperatingSystem() {
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/android/i.test(userAgent)) {
-            return "android";
-        }
+      function getMobileOperatingSystem() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(userAgent)) return "android";
+        
         // iOS detection from: http://stackoverflow.com/a/9039885/177710
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            return "ios";
-        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "ios";
+        
         return "unknown";
-    }
-
-    function writeLink () {
-	  var parser = document.createElement('a');
-	  parser.href = window.location.href;
-	  var query = parser.search;
-
-      alert(JSON.stringify(query));
-        
-      var iosURL = "exp://7jkifnk.marcelocrowdform.19000.exp.direct/--/stripe" + query;
-      iosLink.href = iosURL;
-
-      var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.mycompany.app;S.browser_fallback_url="+query+";end";
-      androidLink.href = androidUrl;
-        
-      var os = getMobileOperatingSystem();
-        
-      if (os === "ios") {
-        window.location.href = iosURL;
-      } else if (os === "android") {
-    	window.location.href = androidUrl;
       }
-    };
+
+      function writeLink () {
+        var parser = document.createElement('a');
+        parser.href = window.location.href;
+        var query = parser.search;
+          
+        var iosURL = "exp://7jkifnk.marcelocrowdform.19000.exp.direct/--/stripe" + query;
+        iosLink.href = iosURL;
+
+        var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.mycompany.app;S.browser_fallback_url="+query+";end";
+        androidLink.href = androidUrl;
+          
+        var os = getMobileOperatingSystem();
+          
+        if (os === "ios") {
+          window.location.href = iosURL;
+        } else if (os === "android") {
+          window.location.href = androidUrl;
+        }
+      };
     </script>  
   </head>
   <body onLoad=writeLink()>
