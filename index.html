@@ -14,14 +14,15 @@
       }
 
       function writeLink () {
-        var parser = document.createElement('a');
-        parser.href = window.location.href;
-        var query = parser.search;
-          
-        var iosURL = "exp://7jkifnk.marcelocrowdform.19000.exp.direct/--/stripe" + query;
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var urlToRedirect = urlParams.get('url');
+
+        var iosURL = urlToRedirect + queryString;
         iosLink.href = iosURL;
 
-        var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.mycompany.app;S.browser_fallback_url="+query+";end";
+        // var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.crowdform.zerocarbon;S.browser_fallback_url="+query+";end";
+        var androidUrl = urlToRedirect + queryString;
         androidLink.href = androidUrl;
           
         var os = getMobileOperatingSystem();
