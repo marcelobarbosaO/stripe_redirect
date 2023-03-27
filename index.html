@@ -16,7 +16,7 @@
       function writeLink () {
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
-        var urlToRedirect = urlParams.get('url');
+        var urlToRedirect = urlParams.get('url_redirect');
 
         var iosURL = urlToRedirect + queryString;
         iosLink.href = iosURL;
