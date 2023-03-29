@@ -14,15 +14,14 @@
       }
 
       function writeLink () {
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var urlToRedirect = urlParams.get('url_redirect');
+        // var queryString = window.location.search;
+        // var urlParams = new URLSearchParams(queryString);
+        // var urlToRedirect = urlParams.get('url_redirect');
 
-        var iosURL = urlToRedirect + queryString;
+        var iosURL = 'zerocarbon://stripe?url_redirect=';
         iosLink.href = iosURL;
 
-        // var androidUrl = "intent://?"+query+"#Intent;scheme=com.mycompany.app;package=com.crowdform.zerocarbon;S.browser_fallback_url="+query+";end";
-        var androidUrl = urlToRedirect + queryString;
+        var androidUrl = "intent://?url_redirect=''#Intent;scheme=com.crowdform.zerocarbon;package=com.crowdform.zerocarbon;S.browser_fallback_url=;end";
         androidLink.href = androidUrl;
           
         var os = getMobileOperatingSystem();
