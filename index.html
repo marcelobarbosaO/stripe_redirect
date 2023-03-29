@@ -18,10 +18,10 @@
         // var urlParams = new URLSearchParams(queryString);
         // var urlToRedirect = urlParams.get('url_redirect');
 
-        var iosURL = 'zerocarbon://stripe?url_redirect=';
+        var iosURL = 'zerocarbon://stripe?url_redirect=stripe_done';
         iosLink.href = iosURL;
 
-        var androidUrl = "intent://?url_redirect=''#Intent;scheme=com.crowdform.zerocarbon;package=com.crowdform.zerocarbon;S.browser_fallback_url=;end";
+        var androidUrl = "intent://?url_redirect=stripe_done#Intent;scheme=com.crowdform.zerocarbon;package=com.crowdform.zerocarbon;S.browser_fallback_url=;end";
         androidLink.href = androidUrl;
           
         var os = getMobileOperatingSystem();
